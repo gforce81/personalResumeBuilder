@@ -71,36 +71,20 @@ Complete guide to all documentation files in this project.
 - Multiple admins
 - Testing security
 
-## 📤 Publishing
-
-### [PUBLISH_TO_GITHUB.md](./PUBLISH_TO_GITHUB.md) ⭐ NEW
-**Publish to GitHub** - Make your project open source
-- Config system explanation
-- Prepare script
-- What gets published vs what stays private
-- Workflow after publishing
-
-### [POST_CLONE_SETUP.md](./POST_CLONE_SETUP.md) ⭐ NEW
-**For users cloning your repo** - Setup after cloning
-- Create personal config files
-- Configure Firebase
-- Deploy their own version
-
 ## 📚 Reference
 
-### [CHANGELOG.md](./CHANGELOG.md)
-**Version history** - All changes and updates
-- Version 2.0 - Major redesign
-- Version 1.x - Feature additions
-- Breaking changes
-- Migration notes
+### [V2_RELEASE_NOTES.md](./V2_RELEASE_NOTES.md)
+**What's new in v2.0** - Major redesign features
+- Complete feature list
+- Before and after comparison
+- Migration guide for upgrading
 
-### [V2_IMPLEMENTATION_SUMMARY.md](./V2_IMPLEMENTATION_SUMMARY.md) ⭐ NEW
-**Implementation details** - Technical summary of v2.0
-- What was implemented
-- File structure changes
-- Data structure updates
-- Testing checklist
+### [FEATURES.md](./FEATURES.md)
+**Complete feature list** - All capabilities
+- Modern resume view features
+- Admin dashboard features
+- Export options
+- Customization options
 
 ## 🔍 Troubleshooting
 
@@ -110,21 +94,6 @@ Complete guide to all documentation files in this project.
 - Solutions and workarounds
 - Database setup verification
 
-## 📦 Historical/Archive
-
-These documents are kept for historical reference but are less relevant for new users:
-
-### [GOOGLE_SIGNIN_UPDATE.md](./GOOGLE_SIGNIN_UPDATE.md)
-Migration notes from email/password to Google Sign-in (v1.1)
-- **Status:** Historical - Google Sign-in is now the default
-
-### [ADMIN_SECURITY_IMPLEMENTATION.md](./ADMIN_SECURITY_IMPLEMENTATION.md)
-Implementation details of email restriction feature (v1.2)
-- **Status:** Informational - see ADMIN_EMAIL_RESTRICTION.md for current info
-
-### [PROJECT_SUMMARY.md](./PROJECT_SUMMARY.md)
-Initial project summary from v1.0
-- **Status:** Outdated - see V2_RELEASE_NOTES.md for current state
 
 ## 📋 Quick Reference by Task
 
@@ -150,7 +119,7 @@ Initial project summary from v1.0
 
 **Understand what's new:**
 1. [V2_RELEASE_NOTES.md](./V2_RELEASE_NOTES.md) - Version 2.0 features
-2. [CHANGELOG.md](./CHANGELOG.md) - Complete history
+2. [FEATURES.md](./FEATURES.md) - Complete feature list
 
 **Edit templates:**
 1. [SECTION_TEMPLATES_GUIDE.md](./SECTION_TEMPLATES_GUIDE.md) - How to use
@@ -161,18 +130,17 @@ Initial project summary from v1.0
 | File | Status | Audience |
 |------|--------|----------|
 | README.md | ✅ Current | Everyone |
+| QUICK_START.md | ✅ Current | New users |
+| POST_CLONE_SETUP.md | ✅ Current | New users (GitHub clone) |
 | SETUP_GUIDE.md | ✅ Current | New users |
 | FIREBASE_CONFIG.md | ✅ Current | Developers |
 | MODERN_DESIGN_GUIDE.md | ✅ Current | Designers/Customizers |
-| V2_RELEASE_NOTES.md | ✅ Current | Existing users upgrading |
+| V2_RELEASE_NOTES.md | ✅ Current | Everyone |
+| FEATURES.md | ✅ Current | Everyone |
 | ADMIN_EMAIL_RESTRICTION.md | ✅ Current | Admins |
 | SECTION_TEMPLATES_GUIDE.md | ✅ Current | Content creators |
-| CHANGELOG.md | ✅ Current | Everyone |
-| V2_IMPLEMENTATION_SUMMARY.md | ✅ Current | Developers |
+| PROJECT_SUMMARY.md | ✅ Current | Overview |
 | FIRESTORE_CORS_FIX.md | ✅ Current | Troubleshooting |
-| GOOGLE_SIGNIN_UPDATE.md | 📦 Archive | Historical |
-| ADMIN_SECURITY_IMPLEMENTATION.md | 📦 Archive | Historical |
-| PROJECT_SUMMARY.md | 📦 Archive | Historical |
 
 ## 💡 Tips
 

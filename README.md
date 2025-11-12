@@ -382,7 +382,8 @@ This project is open source. Feel free to use it for your own resume!
 
 **Reference:**
 - **[V2_RELEASE_NOTES.md](./V2_RELEASE_NOTES.md)** - What's new in v2.0 ⭐
-- **[CHANGELOG.md](./CHANGELOG.md)** - Complete version history
+- **[FEATURES.md](./FEATURES.md)** - Complete feature list
+- **[PROJECT_SUMMARY.md](./PROJECT_SUMMARY.md)** - Project overview
 
 ## Support
 
