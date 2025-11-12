@@ -188,7 +188,7 @@ personalResumeBuilder/
 ## Documentation
 
 ### Essential Docs (Read These)
-- [README.md](./README.md) - Complete documentation
+- [README.md](../README.md) - Complete documentation
 - [SETUP_GUIDE.md](./SETUP_GUIDE.md) - Quick start
 - [V2_RELEASE_NOTES.md](./V2_RELEASE_NOTES.md) - What's new
 - [MODERN_DESIGN_GUIDE.md](./MODERN_DESIGN_GUIDE.md) - Customization

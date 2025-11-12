@@ -4,7 +4,7 @@ Complete guide to all documentation files in this project.
 
 ## 🚀 Getting Started (Read These First)
 
-### [README.md](./README.md)
+### [README.md](../README.md)
 **Main documentation** - Start here for complete project overview
 - Features and tech stack
 - Installation and setup
@@ -113,7 +113,7 @@ Complete guide to all documentation files in this project.
 2. [FIREBASE_CONFIG.md](./FIREBASE_CONFIG.md) - Firebase settings
 
 **Troubleshoot issues:**
-1. [README.md](./README.md) - Troubleshooting section
+1. [README.md](../README.md) - Troubleshooting section
 2. [FIRESTORE_CORS_FIX.md](./FIRESTORE_CORS_FIX.md) - CORS errors
 3. [SETUP_GUIDE.md](./SETUP_GUIDE.md) - Setup problems
 
@@ -144,9 +144,9 @@ Complete guide to all documentation files in this project.
 
 ## 💡 Tips
 
-- **New to the project?** Start with [README.md](./README.md) → [SETUP_GUIDE.md](./SETUP_GUIDE.md)
+- **New to the project?** Start with [README.md](../README.md) → [SETUP_GUIDE.md](./SETUP_GUIDE.md)
 - **Upgrading from v1.x?** Read [V2_RELEASE_NOTES.md](./V2_RELEASE_NOTES.md)
-- **Need help?** Check [README.md](./README.md) troubleshooting first
+- **Need help?** Check [README.md](../README.md) troubleshooting first
 - **Want to customize?** See [MODERN_DESIGN_GUIDE.md](./MODERN_DESIGN_GUIDE.md)
 
 ---

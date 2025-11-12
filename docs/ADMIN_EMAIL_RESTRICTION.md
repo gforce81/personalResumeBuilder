@@ -240,5 +240,5 @@ The security system remains the same and continues to work perfectly with all ne
 
 ---
 
-**Questions?** Check the main [README.md](./README.md) or [FIREBASE_CONFIG.md](./FIREBASE_CONFIG.md) for more information.
+**Questions?** Check the main [README.md](../README.md) or [FIREBASE_CONFIG.md](./FIREBASE_CONFIG.md) for more information.
 

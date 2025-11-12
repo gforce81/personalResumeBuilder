@@ -348,5 +348,5 @@ Section templates help you create professional, well-formatted resume content qu
 
 ---
 
-**Need more help?** See [README.md](./README.md) for complete documentation.
+**Need more help?** See [README.md](../README.md) for complete documentation.
 

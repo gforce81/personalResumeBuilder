@@ -189,5 +189,5 @@ firebase deploy --only firestore:rules
 
 ---
 
-**Need more help?** Check the main [README.md](./README.md) or [SETUP_GUIDE.md](./SETUP_GUIDE.md) for complete instructions.
+**Need more help?** Check the main [README.md](../README.md) or [SETUP_GUIDE.md](./SETUP_GUIDE.md) for complete instructions.
 

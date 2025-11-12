@@ -278,5 +278,5 @@ Potential additions for future versions:
 
 ---
 
-**Need help customizing?** See [README.md](./README.md) for complete documentation.
+**Need help customizing?** See [README.md](../README.md) for complete documentation.
 

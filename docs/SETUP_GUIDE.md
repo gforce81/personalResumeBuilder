@@ -160,7 +160,7 @@ Make sure you're logged in to the Google account associated with the Firebase pr
 
 ## Support
 
-Check the main [README.md](./README.md) for detailed documentation.
+Check the main [README.md](../README.md) for detailed documentation.
 
 ---
 

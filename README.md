@@ -4,11 +4,11 @@ A **modern, beautiful, single-tenant** resume builder featuring a dynamic two-co
 
 **✨ Version 2.0** - Complete redesign with modern aesthetic, profile pictures, social media links, custom section icons, and Firebase Storage uploads!
 
-**🚀 Quick Start:** See [QUICK_START.md](./QUICK_START.md) for the fastest way to get started!
+**🚀 Quick Start:** See [docs/QUICK_START.md](./docs/QUICK_START.md) for the fastest way to get started!
 
-**📚 Full Documentation:** See [DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md) for complete documentation guide.
+**📚 Full Documentation:** See [docs/DOCUMENTATION_INDEX.md](./docs/DOCUMENTATION_INDEX.md) for complete documentation guide.
 
-**Deploy your own:** This project is designed to be easily deployed by anyone. Simply clone, configure your Firebase project, and deploy! See [FIREBASE_CONFIG.md](./FIREBASE_CONFIG.md) for detailed configuration instructions.
+**Deploy your own:** This project is designed to be easily deployed by anyone. Simply clone, configure your Firebase project, and deploy! See [docs/FIREBASE_CONFIG.md](./docs/FIREBASE_CONFIG.md) for detailed configuration instructions.
 
 ## Features
 
@@ -80,7 +80,7 @@ personalResumeBuilder/
    cp src/config.local.js.example src/config.local.js
    
    # Edit the file with your information
-   # (See POST_CLONE_SETUP.md for detailed instructions)
+   # (See docs/POST_CLONE_SETUP.md for detailed instructions)
    ```
 
 3. **Create a Firebase Project**
@@ -109,7 +109,7 @@ personalResumeBuilder/
    };
    ```
    
-   📚 **Detailed instructions:** See [POST_CLONE_SETUP.md](./POST_CLONE_SETUP.md) for step-by-step guide.
+   📚 **Detailed instructions:** See [docs/POST_CLONE_SETUP.md](./docs/POST_CLONE_SETUP.md) for step-by-step guide.
    
    You can find Firebase values in Firebase Console → Project Settings → Your apps → SDK setup and configuration.
 
@@ -273,9 +273,10 @@ The editor supports standard markdown:
 ### Firebase Configuration
 
 To use this with your own Firebase project:
-1. Open `src/lib/firebase.js`
-2. Replace the `firebaseConfig` object with your project's credentials
+1. Copy `src/config.local.js.example` to `src/config.local.js`
+2. Update with your Firebase credentials
 3. Get your config from Firebase Console → Project Settings → Your apps
+4. See [docs/FIREBASE_CONFIG.md](./docs/FIREBASE_CONFIG.md) for details
 
 ### Styling
 
@@ -365,31 +366,31 @@ This project is open source. Feel free to use it for your own resume!
 
 ## Documentation
 
-📚 **[See DOCUMENTATION_INDEX.md for complete documentation guide](./DOCUMENTATION_INDEX.md)**
+📚 **[See docs/DOCUMENTATION_INDEX.md for complete documentation guide](./docs/DOCUMENTATION_INDEX.md)**
 
 ### Quick Links:
 
 **Getting Started:**
-- **[SETUP_GUIDE.md](./SETUP_GUIDE.md)** - Step-by-step setup instructions
-- **[FIREBASE_CONFIG.md](./FIREBASE_CONFIG.md)** - Configure your Firebase project
+- **[docs/SETUP_GUIDE.md](./docs/SETUP_GUIDE.md)** - Step-by-step setup instructions
+- **[docs/FIREBASE_CONFIG.md](./docs/FIREBASE_CONFIG.md)** - Configure your Firebase project
 
 **Customization:**
-- **[MODERN_DESIGN_GUIDE.md](./MODERN_DESIGN_GUIDE.md)** - Customize design and colors ⭐
-- **[SECTION_TEMPLATES_GUIDE.md](./SECTION_TEMPLATES_GUIDE.md)** - Use and edit templates
+- **[docs/MODERN_DESIGN_GUIDE.md](./docs/MODERN_DESIGN_GUIDE.md)** - Customize design and colors ⭐
+- **[docs/SECTION_TEMPLATES_GUIDE.md](./docs/SECTION_TEMPLATES_GUIDE.md)** - Use and edit templates
 
 **Security:**
-- **[ADMIN_EMAIL_RESTRICTION.md](./ADMIN_EMAIL_RESTRICTION.md)** - Configure admin access
+- **[docs/ADMIN_EMAIL_RESTRICTION.md](./docs/ADMIN_EMAIL_RESTRICTION.md)** - Configure admin access
 
 **Reference:**
-- **[V2_RELEASE_NOTES.md](./V2_RELEASE_NOTES.md)** - What's new in v2.0 ⭐
-- **[FEATURES.md](./FEATURES.md)** - Complete feature list
-- **[PROJECT_SUMMARY.md](./PROJECT_SUMMARY.md)** - Project overview
+- **[docs/V2_RELEASE_NOTES.md](./docs/V2_RELEASE_NOTES.md)** - What's new in v2.0 ⭐
+- **[docs/FEATURES.md](./docs/FEATURES.md)** - Complete feature list
+- **[docs/PROJECT_SUMMARY.md](./docs/PROJECT_SUMMARY.md)** - Project overview
 
 ## Support
 
 For issues or questions:
 1. Check the troubleshooting section above
-2. Review [FIREBASE_CONFIG.md](./FIREBASE_CONFIG.md) for configuration help
+2. Review [docs/FIREBASE_CONFIG.md](./docs/FIREBASE_CONFIG.md) for configuration help
 3. Review Firebase Console for any errors
 4. Check browser console for JavaScript errors
 
