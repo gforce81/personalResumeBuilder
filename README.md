@@ -19,7 +19,7 @@ A **modern, beautiful, single-tenant** resume builder featuring a dynamic two-co
 📝 **Smooth Markdown Editor** - Zero lag, modern toolbar, live preview  
 📋 **Section Templates** - 10 pre-formatted templates in dedicated .md files  
 🔄 **Flexible Sections** - Add, remove, and reorder with template selection  
-📄 **Dual Export** - Beautiful online view + ATS-optimized PDF  
+📄 **Professional PDF Export** - Markdown-formatted PDFs with proper bullets, bold/italic text, and headings (powered by jspdf-md-renderer)  
 📱 **Fully Responsive** - Optimized for desktop, tablet, and mobile  
 🎨 **Customizable Colors** - Easy theme customization via CSS variables  
 🚀 **Firebase Hosting** - One-command deployment
@@ -30,7 +30,7 @@ A **modern, beautiful, single-tenant** resume builder featuring a dynamic two-co
 - **Styling:** Tailwind CSS + Custom CSS Variables
 - **Backend:** Firebase (Firestore, Authentication, Storage, Hosting)
 - **Markdown:** react-markdown, @uiw/react-md-editor
-- **PDF Export:** jsPDF (ATS-optimized)
+- **PDF Export:** jsPDF with jspdf-md-renderer (professional markdown rendering)
 - **Icons:** Lucide React (20+ customizable icons)
 - **Templates:** Individual .md files in `src/templates/`
 
@@ -294,6 +294,28 @@ Edit `tailwind.config.js` to customize:
 - Font families
 - Breakpoints
 - Spacing scale
+
+### PDF Export
+
+The PDF export feature uses **[jspdf-md-renderer](https://github.com/JeelGajera/jspdf-md-renderer)** to convert markdown content into professionally formatted PDFs while maintaining ATS compatibility.
+
+**Features:**
+- ✅ Preserves markdown formatting (bold, italic, headings)
+- ✅ Proper bullet points and numbered lists with indentation
+- ✅ Clean, centered header with contact information
+- ✅ Automatic page breaks for long content
+- ✅ ATS-optimized fonts and spacing
+- ✅ Consistent margins and professional layout
+
+**Supported Markdown Elements:**
+- Headings (H1-H6)
+- Bold (`**text**`) and Italic (`*text*`)
+- Bullet lists and numbered lists
+- Nested lists
+- Links
+- Paragraphs with proper spacing
+
+The PDF export is designed to work seamlessly with your markdown content from the admin panel, ensuring what you see in the editor translates accurately to the PDF format.
 
 ## Data Structure
 
