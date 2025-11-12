@@ -33,6 +33,9 @@ dist-ssr
 src/config.local.js
 Gauthier Robe - Resume.md
 
+# Documentation archive (historical/internal use only)
+docs/archive/
+
 # Firebase
 .firebase
 firebase-debug.log
