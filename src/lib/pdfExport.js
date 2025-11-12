@@ -91,6 +91,10 @@ export const exportToPDF = async (resumeData) => {
       regular: { name: 'helvetica', style: 'normal' },
       light: { name: 'helvetica', style: 'normal' },
     },
+    endCursorYHandler: (y) => {
+      // Optional: Log final cursor position
+      console.log('PDF content ends at Y position:', y);
+    },
   };
 
   await MdTextRender(pdf, markdownContent, options);
