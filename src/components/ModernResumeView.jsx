@@ -45,6 +45,15 @@ const ModernResumeView = ({ onAdminClick }) => {
     loadResume();
   }, []);
 
+  // Update page title when resume data loads
+  useEffect(() => {
+    if (resume?.header?.name) {
+      document.title = `${resume.header.name} - Personal Resume Builder`;
+    } else {
+      document.title = 'Personal Resume Builder';
+    }
+  }, [resume]);
+
   const loadResume = async () => {
     try {
       setLoading(true);

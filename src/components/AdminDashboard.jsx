@@ -54,6 +54,11 @@ const AdminDashboard = ({ onLogout, onViewResume }) => {
     loadResume();
   }, []);
 
+  // Update page title
+  useEffect(() => {
+    document.title = 'Admin Dashboard - Personal Resume Builder';
+  }, []);
+
   const loadResume = async () => {
     try {
       setLoading(true);

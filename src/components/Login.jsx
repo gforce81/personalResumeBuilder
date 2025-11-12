@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 import { Lock, AlertCircle } from 'lucide-react';
@@ -6,6 +6,11 @@ import { Lock, AlertCircle } from 'lucide-react';
 const Login = ({ onLoginSuccess, onBackToResume }) => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // Update page title
+  useEffect(() => {
+    document.title = 'Login - Personal Resume Builder';
+  }, []);
 
   const handleGoogleSignIn = async () => {
     setError('');
