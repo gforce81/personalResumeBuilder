@@ -5,7 +5,7 @@ service cloud.firestore {
     function isAdmin() {
       // List of authorized admin email addresses
       // IMPORTANT: Update this list to match ADMIN_EMAILS in src/lib/firebase.js
-      let adminEmails = ['g23e981@gmail.com'];
+      let adminEmails = ['your-email@example.com'];
       return request.auth != null && 
              request.auth.token.email.lower() in adminEmails;
     }
