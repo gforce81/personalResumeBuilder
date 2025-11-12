@@ -1,0 +1,59 @@
+/**
+ * Local Configuration Template
+ * 
+ * INSTRUCTIONS:
+ * 1. Copy this file to `src/config.local.js`
+ * 2. Update all values with your actual information
+ * 3. Never commit config.local.js (it's in .gitignore)
+ * 
+ * This keeps your personal data private while using the public template.
+ */
+
+export default {
+  // Your Firebase Configuration
+  firebase: {
+    apiKey: "AIzaSy...",
+    authDomain: "your-project.firebaseapp.com",
+    projectId: "your-project-id",
+    storageBucket: "your-project.firebasestorage.app",
+    messagingSenderId: "123456789",
+    appId: "1:123456789:web:abc123",
+    measurementId: "G-XXXXXXXXXX"
+  },
+
+  // Your Admin Email(s)
+  adminEmails: [
+    "your.actual.email@gmail.com"
+    // Add more admin emails if needed
+  ],
+
+  // Your Resume Data
+  initialResume: {
+    header: {
+      name: "Your Full Name",
+      title: "Your Professional Title",
+      phone: "+1 (555) 123-4567",
+      email: "your.email@example.com",
+      location: "Your City, State",
+      profilePicture: "", // Will be filled after uploading
+      socialLinks: {
+        github: "https://github.com/yourusername",
+        linkedin: "https://linkedin.com/in/yourprofile",
+        website: "https://yourwebsite.com"
+      }
+    },
+    sections: [
+      // Add your actual resume sections here
+      // See src/config.default.js for structure
+    ]
+  },
+
+  // Your SEO Metadata
+  seo: {
+    title: "Your Name - Your Title | Resume",
+    description: "Your professional summary for search engines",
+    keywords: "your, relevant, keywords",
+    author: "Your Name"
+  }
+};
+

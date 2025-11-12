@@ -1,0 +1,38 @@
+/**
+ * Admin Dashboard Styles
+ * Additional styles for the admin interface
+ */
+
+/* Fix MDEditor textarea height to match container */
+.w-md-editor {
+  min-height: 400px !important;
+}
+
+.w-md-editor .w-md-editor-text-pre,
+.w-md-editor .w-md-editor-text-input,
+.w-md-editor-text {
+  min-height: 350px !important;
+  height: 100% !important;
+}
+
+/* Ensure the editor content area takes full height */
+.w-md-editor-content {
+  height: 100% !important;
+}
+
+.w-md-editor-area {
+  height: 100% !important;
+}
+
+/* Remove the default min-height constraints */
+.w-md-editor-text-pre > code,
+.w-md-editor-text-input {
+  min-height: 350px !important;
+}
+
+/* Better scrolling behavior */
+.w-md-editor-text-pre,
+.w-md-editor-text-input {
+  overflow-y: auto !important;
+}
+

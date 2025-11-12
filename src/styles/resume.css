@@ -1,0 +1,279 @@
+/**
+ * Professional Resume Styles
+ * Clean, ATS-friendly, and print-optimized
+ * Designed to reflect a seasoned product executive with technical expertise
+ */
+
+/* Resume Container - Main wrapper */
+.resume-container {
+  max-width: 850px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  padding: 3rem 3.5rem;
+  line-height: 1.6;
+}
+
+/* Header Section - Name and contact info */
+.resume-header {
+  border-bottom: 2px solid #0284c7;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.resume-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0c4a6e;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.resume-header-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.resume-header-contact a {
+  color: #0284c7;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.resume-header-contact a:hover {
+  color: #0369a1;
+  text-decoration: underline;
+}
+
+.resume-header-contact > *:not(:last-child)::after {
+  content: "|";
+  margin-left: 1rem;
+  color: #cbd5e1;
+}
+
+/* Section - Individual resume sections */
+.resume-section {
+  margin-bottom: 2.5rem;
+}
+
+.resume-section:last-child {
+  margin-bottom: 0;
+}
+
+.resume-section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0c4a6e;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.125rem;
+}
+
+.resume-section-content {
+  color: #1e293b;
+  font-size: 0.95rem;
+}
+
+/* Markdown Content Styling */
+.resume-section-content h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.resume-section-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.resume-section-content h4 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #475569;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-style: italic;
+}
+
+.resume-section-content p {
+  margin-bottom: 0.75rem;
+}
+
+.resume-section-content ul,
+.resume-section-content ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.resume-section-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.resume-section-content ul li {
+  list-style-type: disc;
+}
+
+.resume-section-content strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.resume-section-content em {
+  font-style: italic;
+}
+
+.resume-section-content a {
+  color: #0284c7;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.resume-section-content a:hover {
+  border-bottom-color: #0284c7;
+}
+
+/* Export Buttons */
+.export-buttons {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 0.75rem;
+  z-index: 50;
+}
+
+.export-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background: white;
+  color: #0284c7;
+  border: 1px solid #0284c7;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.export-button:hover {
+  background: #0284c7;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.export-button:active {
+  transform: translateY(0);
+}
+
+.export-button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Admin Button */
+.admin-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.75rem 1.25rem;
+  background: #0c4a6e;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+}
+
+.admin-button:hover {
+  background: #075985;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resume-container {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+  }
+
+  .resume-header h1 {
+    font-size: 2rem;
+  }
+
+  .resume-header-contact {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .resume-header-contact > *:not(:last-child)::after {
+    display: none;
+  }
+
+  .export-buttons {
+    position: static;
+    margin: 1rem;
+    justify-content: center;
+  }
+
+  .admin-button {
+    position: static;
+    margin: 1rem auto;
+    display: block;
+    width: fit-content;
+  }
+}
+
+/* Print Styles - Optimized for PDF export and printing */
+@media print {
+  body {
+    background: white;
+  }
+
+  .resume-container {
+    box-shadow: none;
+    padding: 0.5in 0.75in;
+    max-width: 100%;
+  }
+
+  .export-buttons,
+  .admin-button,
+  .no-print {
+    display: none !important;
+  }
+
+  .resume-section {
+    page-break-inside: avoid;
+  }
+
+  .resume-header {
+    page-break-after: avoid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
