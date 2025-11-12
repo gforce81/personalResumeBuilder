@@ -32,9 +32,14 @@ const ResumeView = ({ onAdminClick }) => {
     }
   };
 
-  const handleExportPDF = () => {
+  const handleExportPDF = async () => {
     if (resume) {
-      exportToPDF(resume);
+      try {
+        await exportToPDF(resume);
+      } catch (error) {
+        console.error('Failed to export PDF:', error);
+        alert('Failed to export PDF. Please try again.');
+      }
     }
   };
 

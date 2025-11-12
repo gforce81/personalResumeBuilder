@@ -1,63 +1,33 @@
 import jsPDF from 'jspdf';
+import { MdTextRender } from 'jspdf-md-renderer';
 
 /**
- * Export resume to ATS-optimized PDF
- * Uses simple, clean formatting that ATS systems can parse
- * This is separate from the modern web view for maximum compatibility
+ * Export resume to professional PDF with markdown formatting
+ * Uses jspdf-md-renderer for proper markdown rendering
+ * Maintains ATS compatibility with clean, readable formatting
  */
-export const exportToPDF = (resumeData) => {
+export const exportToPDF = async (resumeData) => {
   const pdf = new jsPDF({
     orientation: 'portrait',
-    unit: 'pt',
-    format: 'letter'
+    unit: 'mm',
+    format: 'a4'
   });
 
   const pageWidth = pdf.internal.pageSize.getWidth();
-  const pageHeight = pdf.internal.pageSize.getHeight();
-  const margin = 50;
-  const contentWidth = pageWidth - (margin * 2);
+  const margin = 15;
   let yPosition = margin;
 
-  // Helper function to check if we need a new page
-  const checkPageBreak = (requiredHeight) => {
-    if (yPosition + requiredHeight > pageHeight - margin) {
-      pdf.addPage();
-      yPosition = margin;
-      return true;
-    }
-    return false;
-  };
-
-  // Helper to add text with wrapping
-  const addText = (text, fontSize, fontStyle = 'normal', lineHeight = fontSize * 1.3) => {
-    if (!text) return;
-    
-    pdf.setFontSize(fontSize);
-    pdf.setFont('helvetica', fontStyle);
-    
-    const lines = pdf.splitTextToSize(text, contentWidth);
-    const textHeight = lines.length * lineHeight;
-    
-    checkPageBreak(textHeight + 5);
-    
-    lines.forEach((line) => {
-      checkPageBreak(lineHeight);
-      pdf.text(line, margin, yPosition);
-      yPosition += lineHeight;
-    });
-  };
-
-  // Header Section - ATS-friendly format
+  // Header Section - Clean, centered format
   if (resumeData.header) {
     const { name, title, phone, email, location } = resumeData.header;
     
     // Name (centered, larger, bold)
-    pdf.setFontSize(22);
+    pdf.setFontSize(24);
     pdf.setFont('helvetica', 'bold');
-    const nameWidth = pdf.getStringUnitWidth(name || '') * 22 / pdf.internal.scaleFactor;
+    const nameWidth = pdf.getStringUnitWidth(name || '') * 24 / pdf.internal.scaleFactor;
     const nameX = (pageWidth - nameWidth) / 2;
     pdf.text(name || '', nameX, yPosition);
-    yPosition += 22;
+    yPosition += 8;
 
     // Title (centered, medium)
     if (title) {
@@ -66,7 +36,7 @@ export const exportToPDF = (resumeData) => {
       const titleWidth = pdf.getStringUnitWidth(title) * 12 / pdf.internal.scaleFactor;
       const titleX = (pageWidth - titleWidth) / 2;
       pdf.text(title, titleX, yPosition);
-      yPosition += 18;
+      yPosition += 6;
     }
 
     // Contact info (centered, smaller)
@@ -77,81 +47,57 @@ export const exportToPDF = (resumeData) => {
     const contactWidth = pdf.getStringUnitWidth(contactInfo) * 10 / pdf.internal.scaleFactor;
     const contactX = (pageWidth - contactWidth) / 2;
     pdf.text(contactInfo, contactX, yPosition);
-    yPosition += 25;
+    yPosition += 10;
 
     // Divider line
     pdf.setDrawColor(100, 100, 100);
-    pdf.setLineWidth(0.5);
+    pdf.setLineWidth(0.3);
     pdf.line(margin, yPosition, pageWidth - margin, yPosition);
-    yPosition += 20;
+    yPosition += 8;
   }
 
-  // Sections - Simple, ATS-parseable format
+  // Build markdown content for all sections
+  let markdownContent = '';
   if (resumeData.sections) {
     resumeData.sections
       .sort((a, b) => a.order - b.order)
       .forEach((section) => {
-        checkPageBreak(50);
-
-        // Section Title - bold, uppercase
-        pdf.setFontSize(12);
-        pdf.setFont('helvetica', 'bold');
-        pdf.text(section.title.toUpperCase(), margin, yPosition);
-        yPosition += 5;
-        
-        // Underline
-        pdf.setLineWidth(0.5);
-        pdf.line(margin, yPosition, margin + 100, yPosition);
-        yPosition += 15;
-
-        // Section Content - parse markdown to ATS-friendly text
-        const content = parseMarkdownToPlainText(section.content);
-        addText(content, 10, 'normal', 13);
-        
-        yPosition += 15; // Space between sections
+        // Add section with proper markdown formatting
+        markdownContent += `## ${section.title}\n\n`;
+        markdownContent += `${section.content}\n\n`;
       });
   }
+
+  // Render markdown content using jspdf-md-renderer
+  const options = {
+    cursor: { x: margin, y: yPosition },
+    page: {
+      format: 'a4',
+      unit: 'mm',
+      orientation: 'portrait',
+      maxContentWidth: pageWidth - (margin * 2),
+      maxContentHeight: 277,
+      lineSpace: 1.3,
+      defaultLineHeightFactor: 1.15,
+      defaultFontSize: 10,
+      defaultTitleFontSize: 12,
+      topmargin: margin,
+      xpading: margin,
+      xmargin: margin,
+      indent: 7,
+    },
+    font: {
+      bold: { name: 'helvetica', style: 'bold' },
+      regular: { name: 'helvetica', style: 'normal' },
+      light: { name: 'helvetica', style: 'normal' },
+    },
+  };
+
+  await MdTextRender(pdf, markdownContent, options);
 
   // Save the PDF
   const fileName = `${resumeData.header?.name || 'Resume'} - Resume.pdf`;
   pdf.save(fileName);
 };
 
-/**
- * Convert markdown to plain text for ATS compatibility
- * Removes markdown formatting but preserves structure
- */
-const parseMarkdownToPlainText = (markdown) => {
-  if (!markdown) return '';
-
-  let text = markdown;
-
-  // Remove code blocks
-  text = text.replace(/```[\s\S]*?```/g, '');
-  text = text.replace(/`([^`]+)`/g, '$1');
-
-  // Convert headers to plain text with line breaks
-  text = text.replace(/#{1,6}\s+(.+)/g, '\n$1\n');
-
-  // Convert bold/italic to plain text
-  text = text.replace(/\*\*\*(.+?)\*\*\*/g, '$1');
-  text = text.replace(/\*\*(.+?)\*\*/g, '$1');
-  text = text.replace(/\*(.+?)\*/g, '$1');
-  text = text.replace(/___(.+?)___/g, '$1');
-  text = text.replace(/__(.+?)__/g, '$1');
-  text = text.replace(/_(.+?)_/g, '$1');
-
-  // Convert links to just the text
-  text = text.replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1');
-
-  // Convert lists to simple bullets
-  text = text.replace(/^\s*[-*+]\s+/gm, '• ');
-  text = text.replace(/^\s*\d+\.\s+/gm, '');
-
-  // Clean up extra line breaks
-  text = text.replace(/\n{3,}/g, '\n\n');
-  text = text.trim();
-
-  return text;
-};
 
