@@ -480,5 +480,45 @@
   .modern-resume-social-link {
     display: none;
   }
+
+  .modern-resume-footer {
+    display: none !important;
+  }
+}
+
+/* Footer */
+.modern-resume-footer {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  margin-top: 2rem;
+}
+
+.modern-resume-footer p {
+  font-size: 0.875rem;
+  color: var(--resume-text-secondary);
+  opacity: 0.7;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.modern-resume-footer svg {
+  color: var(--color-accent-600);
+  vertical-align: middle;
+}
+
+.modern-resume-footer-link {
+  color: var(--color-primary-600);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  border-bottom: 1px solid transparent;
+}
+
+.modern-resume-footer-link:hover {
+  color: var(--color-primary-700);
+  border-bottom-color: var(--color-primary-600);
 }
 

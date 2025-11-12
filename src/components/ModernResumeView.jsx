@@ -319,6 +319,21 @@ const ModernResumeView = ({ onAdminClick }) => {
             })}
           </div>
         </div>
+
+        {/* Footer */}
+        <footer className="modern-resume-footer no-print">
+          <p>
+            Built with <Heart size={14} className="inline" /> using{' '}
+            <a 
+              href="https://github.com/gforce81/personalResumeBuilder" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="modern-resume-footer-link"
+            >
+              PersonalResumeBuilder
+            </a>
+          </p>
+        </footer>
       </div>
 
       {/* Admin Button */}
