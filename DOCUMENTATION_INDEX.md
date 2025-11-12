@@ -151,5 +151,5 @@ Complete guide to all documentation files in this project.
 
 ---
 
-**Last Updated:** November 11, 2024 (v2.0)
+**Last Updated:** November 11, 2025 (v2.0)
 
