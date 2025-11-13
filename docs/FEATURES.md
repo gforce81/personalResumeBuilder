@@ -40,6 +40,7 @@
 - **Template Selection:** Choose from 10 pre-formatted templates
 - **Template Modal:** Beautiful modal with descriptions
 - **Icon Picker:** Choose custom icon for each section (20+ options)
+- **Privacy Blur Toggle:** Blur section content in public view while keeping headings visible
 - **Reorder:** Move sections up/down with arrow buttons
 - **Delete:** Remove sections with confirmation
 - **Preview Toggle:** Click eye icon to see rendered markdown
@@ -58,21 +59,31 @@
 - **Easy Editing:** Edit templates directly without touching code
 - **Example Formatting:** Each template shows proper markdown structure
 
-## 📄 Export Features
+## 📄 Export Features (Admin-Only)
 
 ### PDF Export (ATS-Optimized)
+- **Admin-Only Access:** Export buttons only available in admin panel
+- **Professional Rendering:** Powered by jspdf-md-renderer for proper markdown formatting
+- **Always Unblurred:** Full content shown in PDFs, blur settings ignored
 - **Simple Format:** Plain, parseable layout for applicant tracking systems
 - **Centered Header:** Professional name and title
 - **Clean Contact:** Email • Phone • Location format
-- **Section Underlines:** Clear visual separation
+- **Proper Formatting:** Preserves bold, italic, headings, bullets, and lists
 - **Smart Page Breaks:** Content doesn't split awkwardly
 - **Standard Fonts:** Helvetica for maximum compatibility
 
 ### Markdown Export
+- **Admin-Only Access:** Export buttons only available in admin panel
+- **Always Unblurred:** Full content exported, blur settings ignored
 - **Complete Data:** Includes all fields (name, title, social links, etc.)
 - **Portable Format:** Standard markdown for any platform
 - **Preserves Structure:** All sections and formatting
 - **Easy Sharing:** Send as .md file
+
+### Why Admin-Only?
+- **Security:** Prevents unauthorized downloads of full resume content
+- **Privacy Control:** Public viewers see only what you want them to see
+- **Professional:** Maintains your privacy while sharing resume publicly
 
 ## 🎨 Customization
 
@@ -101,7 +112,7 @@
 - **Visual Picker:** Emoji-based selection in admin
 - **Auto-Default:** Smart defaults based on section title
 
-## 🔒 Security
+## 🔒 Security & Privacy
 
 ### Authentication
 - **Google Sign-in:** One-click authentication
@@ -114,6 +125,20 @@
 - **Storage Rules:** Authenticated uploads only
 - **Three-Layer Security:** Client + Firestore + Optional Blocking Function
 - **Automatic Sign-Out:** Unauthorized users signed out immediately
+
+### Privacy Blur Mode 👁️
+- **Per-Section Control:** Enable/disable blur for each section independently
+- **Heading Preservation:** H1-H4 headings remain visible (job titles, companies, dates)
+- **Content Protection:** All non-heading content blurred with placeholder lines
+- **Visual Placeholders:** Professional blur lines simulate hidden text
+- **Public View Only:** Blur only applies to public HTML view
+- **Smart Display:** H3 headings followed by realistic placeholder lines
+- **Export Override:** PDF and Markdown exports always show full content
+- **Use Cases:**
+  - Share resume publicly while protecting confidential details
+  - Show career structure without revealing proprietary information
+  - Create "teaser" version to encourage direct contact
+  - Maintain privacy for sensitive projects or clients
 
 ## 📱 Responsive Design
 

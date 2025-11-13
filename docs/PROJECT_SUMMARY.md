@@ -14,19 +14,20 @@ A complete, production-ready resume builder featuring a modern two-column design
    - Visual skill tags (auto-parsed from markdown)
    - Section icons (customizable)
    - Social media links (GitHub, LinkedIn, Website)
+   - Privacy Blur Mode (selective content hiding)
    - Fully responsive (desktop, tablet, mobile)
-   - Export to ATS-optimized PDF
-   - Export to Markdown format
 
 2. **Admin Dashboard**
    - Secure Google Sign-in with email whitelist
    - Profile picture upload to Firebase Storage
    - Header management (name, title, contact, social links)
    - Flexible section management (add, remove, reorder)
+   - Privacy blur toggle per section (protect sensitive content)
    - Template selection modal (10 pre-formatted templates)
    - Custom icon picker for sections
    - Modern markdown editor (zero lag, live preview)
    - Full-height editing area
+   - Admin-only exports (PDF with jspdf-md-renderer, Markdown)
 
 3. **Technical Implementation**
    - React 18 with Vite (fast builds)
@@ -36,7 +37,7 @@ A complete, production-ready resume builder featuring a modern two-column design
    - Firebase Hosting (deployment)
    - Tailwind CSS + Custom CSS (styling)
    - @uiw/react-md-editor (smooth markdown editing)
-   - jsPDF (ATS-optimized PDF generation)
+   - jsPDF + jspdf-md-renderer (professional PDF with markdown formatting)
    - CSS custom properties (easy color theming)
 
 ## File Structure
@@ -104,10 +105,11 @@ personalResumeBuilder/
 - **Template modal** for easy selection
 - **Located in** `src/templates/` folder
 
-### 📄 Export Options
-- **Modern web view** - Beautiful, colorful, dynamic
-- **ATS-optimized PDF** - Simple, parseable, professional
-- **Markdown export** - Portable format with all data
+### 📄 Export Options (Admin-Only)
+- **Modern web view** - Beautiful, colorful, dynamic (public)
+- **Privacy blur mode** - Selective content hiding in public view
+- **ATS-optimized PDF** - Professional markdown rendering, always unblurred (admin-only)
+- **Markdown export** - Portable format with all data, always unblurred (admin-only)
 
 ### 🎨 Customization
 - **Color scheme** via CSS variables (`colors.css`)
@@ -158,7 +160,8 @@ personalResumeBuilder/
       title: "Section Title",
       content: "Markdown content...",
       order: 0,
-      icon: "briefcase"                // NEW in v2.0 (optional)
+      icon: "briefcase",               // NEW in v2.0 (optional)
+      blurContent: false               // NEW in v2.0 (privacy control)
     }
   ],
   updatedAt: "2024-11-11T00:00:00.000Z"

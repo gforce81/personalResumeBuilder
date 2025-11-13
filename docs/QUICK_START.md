@@ -49,8 +49,10 @@ Your resume builder includes:
 - Social media links (GitHub, LinkedIn, Website)
 - Visual skill tags
 - Custom section icons
+- **Privacy Blur Mode** - Hide sensitive content in public view
+- **Admin-only exports** - PDF and Markdown exports secured
 - 10 pre-formatted templates
-- ATS-optimized PDF export
+- ATS-optimized PDF export with professional markdown rendering
 
 See [V2_RELEASE_NOTES.md](./V2_RELEASE_NOTES.md) for complete feature list!
 
