@@ -562,79 +562,76 @@
   position: relative;
 }
 
-.modern-resume-blurred-section .heading-level-1,
-.modern-resume-blurred-section .heading-level-2,
-.modern-resume-blurred-section .heading-level-3,
-.modern-resume-blurred-section .heading-level-4 {
-  position: relative;
-  z-index: 2;
-  background: white;
-  margin-bottom: 0.75rem;
-  padding: 0.25rem 0;
+.modern-resume-blurred-item {
+  margin-bottom: 1.5rem;
 }
 
-.modern-resume-blurred-section .heading-level-1 {
+/* Heading Styles - No markdown syntax shown */
+.modern-resume-blur-heading-1 {
   font-size: 1.875rem;
   font-weight: 700;
   color: var(--resume-text-primary);
-  margin-bottom: 1rem;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.2;
 }
 
-.modern-resume-blurred-section .heading-level-2 {
+.modern-resume-blur-heading-2 {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--resume-text-primary);
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 0.5rem 0;
+  line-height: 1.3;
 }
 
-.modern-resume-blurred-section .heading-level-3 {
+.modern-resume-blur-heading-3 {
   font-size: 1rem;
   font-weight: 600;
   color: var(--resume-text-secondary);
+  margin: 0.5rem 0 0.5rem 0;
+  line-height: 1.4;
 }
 
-.modern-resume-blurred-section .heading-level-4 {
+.modern-resume-blur-heading-4 {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--resume-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  margin: 0.25rem 0 0.5rem 0;
 }
 
-.modern-resume-blur-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  filter: blur(8px);
-  opacity: 0.4;
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
+/* First heading in section shouldn't have top margin */
+.modern-resume-blurred-item:first-child .modern-resume-blur-heading-2 {
+  margin-top: 0;
 }
 
-.modern-resume-blur-overlay * {
-  color: var(--resume-text-secondary) !important;
+/* Placeholder Blurred Lines */
+.modern-resume-blur-placeholder {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-/* In print mode, don't blur anything (for PDFs) */
+.blur-line {
+  height: 10px;
+  background: linear-gradient(90deg, 
+    rgba(0, 0, 0, 0.08) 0%, 
+    rgba(0, 0, 0, 0.12) 50%, 
+    rgba(0, 0, 0, 0.08) 100%);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  filter: blur(2px);
+  opacity: 0.6;
+}
+
+.blur-line.short {
+  width: 70%;
+  margin-bottom: 0;
+}
+
+/* In print mode, show actual content instead of blur */
 @media print {
-  .modern-resume-blurred-section .heading-level-1,
-  .modern-resume-blurred-section .heading-level-2,
-  .modern-resume-blurred-section .heading-level-3,
-  .modern-resume-blurred-section .heading-level-4 {
+  .modern-resume-blurred-section {
     display: none;
-  }
-  
-  .modern-resume-blur-overlay {
-    position: relative;
-    filter: none;
-    opacity: 1;
-  }
-  
-  .modern-resume-blur-overlay * {
-    color: var(--resume-text-primary) !important;
   }
 }
 

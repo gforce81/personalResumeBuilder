@@ -93,13 +93,21 @@ const ModernResumeView = ({ onAdminClick }) => {
     return (
       <div className="modern-resume-blurred-section">
         {headings.map((heading, idx) => (
-          <div key={idx} className={`heading-level-${heading.level}`}>
-            {'#'.repeat(heading.level)} {heading.text}
+          <div key={idx} className="modern-resume-blurred-item">
+            {heading.level === 1 && <h1 className="modern-resume-blur-heading-1">{heading.text}</h1>}
+            {heading.level === 2 && <h2 className="modern-resume-blur-heading-2">{heading.text}</h2>}
+            {heading.level === 3 && <h3 className="modern-resume-blur-heading-3">{heading.text}</h3>}
+            {heading.level === 4 && <h4 className="modern-resume-blur-heading-4">{heading.text}</h4>}
+            
+            {/* Placeholder blurred lines to show hidden content */}
+            <div className="modern-resume-blur-placeholder">
+              <div className="blur-line"></div>
+              <div className="blur-line"></div>
+              <div className="blur-line"></div>
+              <div className="blur-line short"></div>
+            </div>
           </div>
         ))}
-        <div className="modern-resume-blur-overlay">
-          <ReactMarkdown>{content}</ReactMarkdown>
-        </div>
       </div>
     );
   };
