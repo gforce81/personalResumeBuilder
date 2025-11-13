@@ -99,13 +99,15 @@ const ModernResumeView = ({ onAdminClick }) => {
             {heading.level === 3 && <h3 className="modern-resume-blur-heading-3">{heading.text}</h3>}
             {heading.level === 4 && <h4 className="modern-resume-blur-heading-4">{heading.text}</h4>}
             
-            {/* Placeholder blurred lines to show hidden content */}
-            <div className="modern-resume-blur-placeholder">
-              <div className="blur-line"></div>
-              <div className="blur-line"></div>
-              <div className="blur-line"></div>
-              <div className="blur-line short"></div>
-            </div>
+            {/* Placeholder blurred lines only after H3 (company/location) */}
+            {heading.level === 3 && (
+              <div className="modern-resume-blur-placeholder">
+                <div className="blur-line"></div>
+                <div className="blur-line"></div>
+                <div className="blur-line"></div>
+                <div className="blur-line short"></div>
+              </div>
+            )}
           </div>
         ))}
       </div>
