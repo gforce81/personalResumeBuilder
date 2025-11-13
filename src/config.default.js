@@ -51,12 +51,14 @@ export default {
         id: "summary",
         title: "Summary",
         order: 0,
+        blurContent: false,
         content: "Your professional summary here. Highlight your expertise, experience, and key accomplishments."
       },
       {
         id: "experience",
         title: "Experience",
         order: 1,
+        blurContent: false,
         content: `## Job Title
 
 ### Company Name, Location
@@ -74,6 +76,7 @@ Brief description of your role and the company.
         id: "education",
         title: "Education",
         order: 2,
+        blurContent: false,
         content: `* **Degree Name, Major**  
   University Name, Location  
   Graduation Year`
@@ -82,6 +85,7 @@ Brief description of your role and the company.
         id: "skills",
         title: "Skills",
         order: 3,
+        blurContent: false,
         content: `* **Technical Skills:** Skill 1, Skill 2, Skill 3, Skill 4
 * **Tools:** Tool 1, Tool 2, Tool 3
 * **Languages:** Language 1 (proficiency), Language 2 (proficiency)`

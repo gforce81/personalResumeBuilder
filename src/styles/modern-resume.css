@@ -557,3 +557,84 @@
   border-bottom-color: var(--color-primary-600);
 }
 
+/* Blur Effect for Privacy */
+.modern-resume-blurred-section {
+  position: relative;
+}
+
+.modern-resume-blurred-section .heading-level-1,
+.modern-resume-blurred-section .heading-level-2,
+.modern-resume-blurred-section .heading-level-3,
+.modern-resume-blurred-section .heading-level-4 {
+  position: relative;
+  z-index: 2;
+  background: white;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0;
+}
+
+.modern-resume-blurred-section .heading-level-1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--resume-text-primary);
+  margin-bottom: 1rem;
+}
+
+.modern-resume-blurred-section .heading-level-2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--resume-text-primary);
+  margin-top: 1.5rem;
+}
+
+.modern-resume-blurred-section .heading-level-3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--resume-text-secondary);
+}
+
+.modern-resume-blurred-section .heading-level-4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--resume-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.modern-resume-blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(8px);
+  opacity: 0.4;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.modern-resume-blur-overlay * {
+  color: var(--resume-text-secondary) !important;
+}
+
+/* In print mode, don't blur anything (for PDFs) */
+@media print {
+  .modern-resume-blurred-section .heading-level-1,
+  .modern-resume-blurred-section .heading-level-2,
+  .modern-resume-blurred-section .heading-level-3,
+  .modern-resume-blurred-section .heading-level-4 {
+    display: none;
+  }
+  
+  .modern-resume-blur-overlay {
+    position: relative;
+    filter: none;
+    opacity: 1;
+  }
+  
+  .modern-resume-blur-overlay * {
+    color: var(--resume-text-primary) !important;
+  }
+}
+

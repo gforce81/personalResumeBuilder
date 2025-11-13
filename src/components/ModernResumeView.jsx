@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { 
-  Download, 
-  FileText, 
   Github, 
   Linkedin, 
   Globe,
@@ -26,11 +24,10 @@ import {
   Zap,
   Shield,
   Wrench,
-  Rocket
+  Rocket,
+  FileText
 } from 'lucide-react';
 import { getResume } from '../lib/resumeService';
-import { exportToPDF } from '../lib/pdfExport';
-import { exportToMarkdown } from '../lib/markdownExport';
 import { parseSkills } from '../lib/skillParser';
 import { getDefaultIconForTitle } from '../lib/iconList';
 import '../styles/modern-resume.css';
@@ -71,21 +68,40 @@ const ModernResumeView = ({ onAdminClick }) => {
     }
   };
 
-  const handleExportPDF = async () => {
-    if (resume) {
-      try {
-        await exportToPDF(resume);
-      } catch (error) {
-        console.error('Failed to export PDF:', error);
-        alert('Failed to export PDF. Please try again.');
-      }
+  // Helper function to extract headings from markdown
+  const extractHeadings = (markdown) => {
+    if (!markdown) return [];
+    const headingRegex = /^(#{1,4})\s+(.+)$/gm;
+    const headings = [];
+    let match;
+    
+    while ((match = headingRegex.exec(markdown)) !== null) {
+      headings.push({
+        level: match[1].length,
+        text: match[2],
+        fullMatch: match[0]
+      });
     }
+    
+    return headings;
   };
 
-  const handleExportMarkdown = () => {
-    if (resume) {
-      exportToMarkdown(resume);
-    }
+  // Component to render blurred content with visible headings
+  const BlurredContent = ({ content }) => {
+    const headings = extractHeadings(content);
+    
+    return (
+      <div className="modern-resume-blurred-section">
+        {headings.map((heading, idx) => (
+          <div key={idx} className={`heading-level-${heading.level}`}>
+            {'#'.repeat(heading.level)} {heading.text}
+          </div>
+        ))}
+        <div className="modern-resume-blur-overlay">
+          <ReactMarkdown>{content}</ReactMarkdown>
+        </div>
+      </div>
+    );
   };
 
   // Get icon component for section
@@ -170,18 +186,6 @@ const ModernResumeView = ({ onAdminClick }) => {
 
   return (
     <div className="modern-resume-container">
-      {/* Export Buttons */}
-      <div className="modern-resume-export-buttons no-print">
-        <button onClick={handleExportPDF} className="modern-resume-export-button">
-          <Download size={18} />
-          <span>PDF</span>
-        </button>
-        <button onClick={handleExportMarkdown} className="modern-resume-export-button">
-          <FileText size={18} />
-          <span>Markdown</span>
-        </button>
-      </div>
-
       <div className="modern-resume-wrapper">
         {/* Header/Hero Section */}
         <header className="modern-resume-header">
@@ -282,9 +286,13 @@ const ModernResumeView = ({ onAdminClick }) => {
                   </div>
                   <h2 className="modern-resume-section-title">{section.title}</h2>
                 </div>
-                <div className="modern-resume-section-content">
-                  <ReactMarkdown>{section.content}</ReactMarkdown>
-                </div>
+                {section.blurContent ? (
+                  <BlurredContent content={section.content} />
+                ) : (
+                  <div className="modern-resume-section-content">
+                    <ReactMarkdown>{section.content}</ReactMarkdown>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -304,7 +312,9 @@ const ModernResumeView = ({ onAdminClick }) => {
                     <h2 className="modern-resume-section-title">{section.title}</h2>
                   </div>
                   
-                  {isSkillsSection && skillsData && skillsData.length > 0 ? (
+                  {section.blurContent ? (
+                    <BlurredContent content={section.content} />
+                  ) : isSkillsSection && skillsData && skillsData.length > 0 ? (
                     /* Render skills as tags */
                     <div>
                       {skillsData.map((category, idx) => (

@@ -17,11 +17,15 @@ import {
   CheckCircle,
   FileText,
   Upload,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Download,
+  EyeOff
 } from 'lucide-react';
 import MDEditor from '@uiw/react-md-editor';
 import '@uiw/react-md-editor/markdown-editor.css';
 import '@uiw/react-markdown-preview/markdown.css';
+import { exportToPDF } from '../lib/pdfExport';
+import { exportToMarkdown } from '../lib/markdownExport';
 import '../styles/admin.css';
 
 const AdminDashboard = ({ onLogout, onViewResume }) => {
@@ -102,6 +106,30 @@ const AdminDashboard = ({ onLogout, onViewResume }) => {
     }
   };
 
+  const handleExportPDF = async () => {
+    if (resume) {
+      try {
+        await exportToPDF(resume);
+        showMessage('success', 'PDF exported successfully!');
+      } catch (error) {
+        showMessage('error', 'Failed to export PDF. Please try again.');
+        console.error('Failed to export PDF:', error);
+      }
+    }
+  };
+
+  const handleExportMarkdown = () => {
+    if (resume) {
+      try {
+        exportToMarkdown(resume);
+        showMessage('success', 'Markdown exported successfully!');
+      } catch (error) {
+        showMessage('error', 'Failed to export Markdown. Please try again.');
+        console.error('Failed to export Markdown:', error);
+      }
+    }
+  };
+
   const updateHeader = (field, value) => {
     setResume(prev => ({
       ...prev,
@@ -157,7 +185,8 @@ const AdminDashboard = ({ onLogout, onViewResume }) => {
       id: `section-${Date.now()}`,
       title: template.title,
       content: template.content,
-      order: resume.sections.length
+      order: resume.sections.length,
+      blurContent: false
     };
     setResume(prev => ({
       ...prev,
@@ -233,6 +262,22 @@ const AdminDashboard = ({ onLogout, onViewResume }) => {
               >
                 <Eye className="w-4 h-4" />
                 <span className="hidden sm:inline">View Resume</span>
+              </button>
+              <button
+                onClick={handleExportPDF}
+                className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
+                title="Export to PDF"
+              >
+                <Download className="w-4 h-4" />
+                <span className="hidden sm:inline">PDF</span>
+              </button>
+              <button
+                onClick={handleExportMarkdown}
+                className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
+                title="Export to Markdown"
+              >
+                <FileText className="w-4 h-4" />
+                <span className="hidden sm:inline">Markdown</span>
               </button>
               <button
                 onClick={handleSave}
@@ -469,6 +514,17 @@ const AdminDashboard = ({ onLogout, onViewResume }) => {
                         title="Move down"
                       >
                         <ChevronDown className="w-5 h-5" />
+                      </button>
+                      <button
+                        onClick={() => updateSection(section.id, 'blurContent', !section.blurContent)}
+                        className={`p-1.5 rounded ${
+                          section.blurContent 
+                            ? 'text-orange-600 bg-orange-50 hover:bg-orange-100' 
+                            : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                        }`}
+                        title={section.blurContent ? 'Content will be blurred in public view' : 'Click to blur content in public view'}
+                      >
+                        <EyeOff className="w-5 h-5" />
                       </button>
                       <button
                         onClick={() => setEditorPreview(prev => ({

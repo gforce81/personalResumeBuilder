@@ -19,7 +19,8 @@ A **modern, beautiful, single-tenant** resume builder featuring a dynamic two-co
 📝 **Smooth Markdown Editor** - Zero lag, modern toolbar, live preview  
 📋 **Section Templates** - 10 pre-formatted templates in dedicated .md files  
 🔄 **Flexible Sections** - Add, remove, and reorder with template selection  
-📄 **Professional PDF Export** - Markdown-formatted PDFs with proper bullets, bold/italic text, and headings (powered by jspdf-md-renderer)  
+👁️ **Privacy Blur Mode** - Selectively blur section content in public view while keeping headings visible  
+📄 **Admin-Only Exports** - PDF and Markdown exports available only to authenticated admins  
 📱 **Fully Responsive** - Optimized for desktop, tablet, and mobile  
 🎨 **Customizable Colors** - Easy theme customization via CSS variables  
 🚀 **Firebase Hosting** - One-command deployment
@@ -230,22 +231,27 @@ For subdirectory hosting (like `/resume`), you may need to configure your domain
 ### Public Resume View
 
 - Visit the root URL (`/`) to view the public resume
-- Click export buttons to download PDF or Markdown
+- View your beautifully formatted resume with two-column layout
+- Sections with blur mode enabled will show only headings
 - Click "Admin Panel" to access the admin interface (requires login)
+- **Note:** PDF and Markdown exports are only available in the Admin Panel
 
 ### Admin Panel
 
 1. **Login:** Navigate to `/admin` or click "Admin Panel"
-2. **Edit Header:** Update name, phone, email, location
+2. **Edit Header:** Update name, phone, email, location, profile picture, and social links
 3. **Manage Sections:**
-   - Click "Add Section" to create new sections
+   - Click "Add Section" to create new sections with template selection
    - Edit section titles inline
+   - Change section icons by clicking the icon button
    - Use the markdown editor for content
-   - Toggle preview to see rendered markdown
+   - Toggle blur mode (eye-with-slash icon) to hide content in public view
+   - Toggle preview (eye icon) to see rendered markdown
    - Use arrow buttons to reorder sections
    - Click trash icon to delete sections
-4. **Save:** Click "Save" to persist changes
-5. **View:** Click "View Resume" to see your public resume
+4. **Export:** Use PDF and Markdown export buttons in the header (admin-only)
+5. **Save:** Click "Save" to persist changes
+6. **View:** Click "View Resume" to preview your public resume
 
 ### Markdown Formatting Tips
 
@@ -267,6 +273,43 @@ The editor supports standard markdown:
 
 [Link text](https://example.com)
 ```
+
+**Important Date Format:**  
+For proper display when using the Privacy Blur Mode (see below), dates should be formatted as:
+- `May 2021 - April 2023`
+- `May 2021 - Present`
+
+Other date formats will be blurred along with other non-heading content.
+
+### Privacy Blur Mode
+
+The **Privacy Blur Mode** allows you to selectively hide sensitive content in the public view of your resume while keeping key information (headings) visible. This is perfect for sharing your resume publicly while protecting proprietary information or detailed accomplishments.
+
+**How it works:**
+1. In the Admin Panel, each section has a "blur" toggle button (eye icon with slash)
+2. When enabled for a section:
+   - **Headings (H1-H4)** remain visible and clear
+   - **All other content** is blurred and unreadable
+   - Job titles, company names (as headings), and dates are visible
+   - Accomplishments, responsibilities, and details are hidden
+3. The blur effect only applies to the **public HTML view**
+4. **PDF and Markdown exports** (admin-only) always show full, unblurred content
+
+**Best Practices:**
+- Use headings consistently for job titles (H2), companies (H3), and dates
+- Format dates as `Month Year - Month Year` or `Month Year - Present`
+- Structure work experience like this:
+  ```markdown
+  ## Job Title
+  ### Company Name, Location
+  May 2021 - Present
+  * (detailed accomplishments that will be blurred)
+  ```
+
+**Use Cases:**
+- Sharing your resume publicly while protecting confidential details
+- Maintaining privacy for sensitive projects or clients
+- Creating a "teaser" version to encourage direct contact
 
 ## Customization
 
